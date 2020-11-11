@@ -1,3 +1,7 @@
 tmpfs                   /tmp            tmpfs   defaults,nodev,noatime    0       0
 tmpfs                   /home/ly/.cache tmpfs   nodev,noatime,nosuid,size=100M    0       0
 LABEL="USB_Tran"                /var            ext4    defaults,noatime  0       2
+
+//192.168.137.1/_Hold /media/net/hold	cifs auto,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,file_mode=0666,credentials=/home/lis/.config/.sec/7739-samba	0	1
+//192.168.137.1/Downloads /media/net/downloads	cifs auto,file_mode=0666,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,credentials=/home/lis/.config/.sec/7739-samba	0	1
+//192.168.137.1/MMedia /media/net/mmedia	cifs auto,file_mode=0666,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,credentials=/home/lis/.config/.sec/7739-samba	0	1 
