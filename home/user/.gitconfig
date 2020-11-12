@@ -1,3 +1,17 @@
 [user]
 	email = lipsergey@gmail.com
 	name = Sergej
+[core]
+	excludesfile = ~/.gitexcludes
+#	quotepath = off
+#	autocrlf = true
+[alias]
+	st = status -bs
+	dw = diff --color-words
+	lg2 = log --graph --decorate --format=format:'%C(auto)%h %ad %C(bold)%s -%Cblue %an%C(auto) %d' --date=short --all
+	lg = log --graph --decorate --format=format:'%C(yellow)%h %C(bold)%C(auto)%s %C(blue)%cr %C(auto)%d' --all --abbrev-commit
+	lg1 = log --color=always --all --graph --topo-order  --decorate --pretty='%Cred%h %C(yellow)%d %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+#[i18n]
+#	filesEncoding = windows-1251
+	
+	
