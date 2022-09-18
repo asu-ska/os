@@ -1,12 +1,19 @@
-tmpfs                   /tmp            tmpfs   defaults,nodev,nosuid,noatime    0       0
-#tmpfs                   /home/ly/.cache tmpfs   nodev,noatime,nosuid,size=100M    0       0
+tmpfs                   /tmp            tmpfs   defaults,nodev,nosuid,noatime
+#tmpfs                   /home/ly/.cache tmpfs   nodev,noatime,nosuid,size=100M
 LABEL="USB_Tran"                /var            ext4    defaults,noatime  0       2
 
-//192.168.137.1/_Hold /media/net/hold	cifs auto,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,file_mode=0666,credentials=/home/lis/.config/.sec/7739-samba	0	1
-//192.168.137.1/Downloads /media/net/downloads	cifs auto,file_mode=0666,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,credentials=/home/lis/.config/.sec/7739-samba	0	1
-//192.168.137.1/MMedia /media/net/mmedia	cifs auto,file_mode=0666,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,credentials=/home/lis/.config/.sec/7739-samba	0	1 
+//192.168.137.1/_Hold /media/net/hold	cifs auto,user,_netdev,defaults,nofail,uid=1001,iocharset=utf8,file_mode=0666,credentials=/home/lis/.config/.sec/7739-samba
 
-/var/swapfile                                 none            swap    sw              0       0
-/home/ly/.cache	/var/symlinks/home/ly/.cache	none	bind	0	0
-LABEL=HDD /media/win/ ntfs nls-utf8,uid=ly,gid=users,dmask=022,fmask=133,rw 0 0
+/var/swapfile                                 none            swap    sw
+
+LABEL=HDD /media/win/ ntfs nls-utf8,uid=ly,gid=users,dmask=022,fmask=133,rw
 ext4: errors=remount-ro
+
+UUID=dab21f77-febd-46f0-a4ca-1998da9351db   /var             ext4    defaults               0 1
+LABEL=home                                  /home            ext4    defaults               0 1
+/var/swapfile                               none             swap    sw                     0 0
+LABEL=HDD                                   /media/win_sata  ntfs3   defaults
+LABEL="250_GB"                              /media/win_ide   ntfs3   defaults
+LABEL=SSD                                   /media/win_ssd   ntfs3   uid=ly,gid=users,dmask=022,fmask=133
+#LABEL=exFAT_250 /media/ex_fat exfat uid=ly,gid=users,dmask=022,fmask=133 0 0
+#LABEL=SSD_exFAT /media/ssd_e exfat uid=ly,gid=users,dmask=022,fmask=133 0 0
