@@ -1,0 +1,9 @@
+C	copy
+    sudo cp --interactive %s %D
+
+M	move
+    sudo mv --interactive %s %D
+
+D	mkdir
+    new_dir=%{New dir}
+    sudo mkdir -p -v $new_dir
