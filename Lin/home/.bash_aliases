@@ -4,5 +4,5 @@ alias ls='ls -BpvC --group-directories-first --color=auto'
 alias ll='ls -lhNa'
 alias la='ls -A'
 
-alias inst="$SUDO apt install"
-alias upg='$SUDO apt update && $SUDO apt upgrade'
+#?alias inst="$SUDO apt install"
+#?alias upg='$SUDO apt update && $SUDO apt upgrade'
