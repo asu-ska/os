@@ -9,6 +9,7 @@
 	st = status -bs
 	ch = checkout
   	co = commit -m
+  	ca = commit -am
   	br = branch 
 	dw = diff --color-words
 	lg2 = log --graph --decorate --format=format:'%C(auto)%h %ad %C(bold)%s -%Cblue %an%C(auto) %d' --date=short --all
