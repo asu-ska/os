@@ -7,8 +7,8 @@
 #	autocrlf = true
 [alias]
 	st = status -bs
-	co = checkout
-  	ci = commit
+	ch = checkout
+  	co = commit -m
   	br = branch 
 	dw = diff --color-words
 	lg2 = log --graph --decorate --format=format:'%C(auto)%h %ad %C(bold)%s -%Cblue %an%C(auto) %d' --date=short --all
