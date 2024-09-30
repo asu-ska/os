@@ -1,0 +1,97 @@
+global:
+  #scrape_interval: 30s # Default is every 1 minute.
+  #evaluation_interval: 30s # Evaluate rules. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+           - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+  - "alert.rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: "virual_prom"
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+      - targets: ["localhost:9090", "localhost:9100"]
+  - job_name: prometheus
+    static_configs
+
+  - job_name: "Blackbox-ICMP"
+    scrape_interval: 5m
+    metrics_path: /probe
+    params:
+      module: [icmp]  #ping
+    static_configs:
+    - labels:
+        name: internal
+      targets:
+        - '192.168.20.50'
+        - '192.168.20.112'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
+  - job_name: 'Blackbox-TCP'
+    scrape_interval: 10m
+    metrics_path: /probe
+    params:
+      module: [tcp_connect]
+    static_configs:
+      - targets:
+        - 8.8.8.8:53
+        - 208.67.222.222:53
+        - 77.88.8.1:53
+        - 1.1.1.1:53
+        labels:
+          alias: tcp-connect
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
+
+
+  - job_name: 'Blackbox-HTTP'
+    scrape_interval: 15m
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets: ["localhost"]
+        labels:
+          instance: "🧪 GLPI"
+
+      - targets: ["localhost:8080"]
+        labels:
+          instance: "🧪 Report"
+
+      - targets: ["glpi.ska"]
+        labels:
+          alias: http
+
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: localhost:9115
