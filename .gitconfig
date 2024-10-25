@@ -5,6 +5,10 @@
 	excludesfile = ~/.gitexcludes
 #	quotepath = off
 #	autocrlf = true
+[commit]
+	verbose = true
+[init]
+	defaultBranch = main
 [alias]
 	st = status -bs
 	ch = checkout
