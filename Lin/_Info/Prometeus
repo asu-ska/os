@@ -1,0 +1,8 @@
+useradd -c "Alertmanager system user" -U --system -s /bin/false alertmanager
+
+в сюстемд юнит я бы добавил ещё строчку:
+ExecReload=/bin/kill -HUP $MAINPID
+для перечитывания конфига без рестарта прома
+
+а в параметры запуска ключик с временем хранения метрик:
+--storage.tsdb.retention=30d
