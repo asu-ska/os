@@ -1,2 +1,4 @@
 sudo systemctl edit --full --force ^
 sudo systemctl enable --now ^
+
+добавить пользователя в группу systemd-journal
