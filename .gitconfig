@@ -9,6 +9,23 @@
 	verbose = true
 [init]
 	defaultBranch = main
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[help]
+        autocorrect = prompt
 [alias]
 	st = status -bs
 	ch = checkout
@@ -20,5 +37,4 @@
 	lg = log --graph --decorate --format=format:'%C(yellow)%h %C(bold)%C(auto)%s %C(blue)%cr %C(auto)%d' --all --abbrev-commit
 #[i18n]
 #	filesEncoding = windows-1251
-	
-	
+# Git и так ищет глобальные ignore-значения в двух следующих местах: ~/git/ignore и ~/.config/git/ignore
