@@ -2,3 +2,8 @@ sudo systemctl edit --full --force ^
 sudo systemctl enable --now ^
 
 добавить пользователя в группу systemd-journal
+
+Список всех групп
+cat /etc/group
+
+sudo useradd -rMs /bin/false -c "Telegram bot psevdouser" bot
