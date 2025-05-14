@@ -7,3 +7,11 @@ sudo systemctl enable --now ^
 cat /etc/group
 
 sudo useradd -rMs /bin/false -c "Telegram bot psevdouser" bot
+-r – создает системную учетную запись;
+-N – указывает на то, что для этого системного пользователя не будет создана отдельная группа;
+-s /bin/false – запрещает пользователю доступ к командной оболочке;
+-c "Disabled system user" – добавляет комментарий.
+-g - основная группа пользователя;
+-G - список дополнительных групп;
+
+sudo usermod -aG <group> <username>
