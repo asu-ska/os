@@ -1,0 +1,17 @@
+#edit giconfig
+git config --global user.email serreg123@gmail.com
+git config --global user.name "SergeyLp"
+git config --global core.excludesFile ~/.config/gitignore
+
+[alias]
+	st = status -bs
+	ch = checkout
+ 	co = commit -m
+ 	ca = commit -am
+ 	br = branch 
+	dw = diff --color-words
+	lg = log --graph --decorate --format=format:'%C(yellow)%h %C(bold)%C(auto)%s %C(blue)%cr %C(auto)%d' --all --abbrev-commit
+[credential]
+    helper = cache --timeout 30000
+
+#edit bashrc
