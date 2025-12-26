@@ -1,0 +1,47 @@
+HISTCONTROL=ignoreboth:erasedups
+HISTSIZE=10000
+HISTFILESIZE=20000
+HISTIGNORE='ls:ps:history*'
+
+# save all lines of a multiple-line command in the same history entry (allows easy re-editing of multi-line commands)
+shopt -s cmdhist
+# correct minor errors in the spelling of a directory component in a cd command
+shopt -s cdspell
+# append to the history file, don't overwrite it
+shopt -s histappend
+# there are stopped or running background jobs, the shell prints warning message
+shopt -s checkjobs
+
+#info () {
+#    error=$?
+#}
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+##if ! shopt -oq posix; then
+##  if [ -f /usr/share/bash-completion/bash_completion ]; then
+##    . /usr/share/bash-completion/bash_completion
+##  elif [ -f /etc/bash_completion ]; then
+##    . /etc/bash_completion
+##  fi
+##fi
+# Duplicate \w !!!
+
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+
+##if [ -f ~/.local/share/git-completion.bash ]; then
+##  . ~/.local/share/git-completion.bash
+##fi
+# Duplicate \w !!!
+
+##-. /etc/bash_completion.d/git-prompt
+##-/etc/bash_completion.d/git-prompt
+###if [ -f ~/.local/share/git-prompt.sh ]; then
+###  . ~/.local/share/git-prompt.sh
+###fi
+
+###export GIT_PS1_SHOWDIRTYSTATE=1
+##export PS1='`__git_ps1 "%s"` \w \$ '
+###export PS1='\w$(__git_ps1 " (%s)")\$ '
